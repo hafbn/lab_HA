@@ -9,7 +9,6 @@ public class CiceService {
     private static final BigDecimal MINIMUM_WAGE = new BigDecimal(1014.00);
     private static final BigDecimal CICE_RATE = new BigDecimal(0.06);
     public BigDecimal compute(final List<Employee> employees) {
-
         // Step 1: Eliminate interns from the employees list
         List<Employee> filteredEmployees = employees.stream()
                 .filter(employee -> !employee.getIntern()) // Delete interns from list of employees
@@ -43,7 +42,6 @@ public class CiceService {
         BigDecimal cice = basis.multiply(CICE_RATE).setScale(0, RoundingMode.HALF_UP);
 
         return cice;
-
     }
 
     // Check if an earning type is declared
@@ -53,5 +51,4 @@ public class CiceService {
                 earningType == EarningType.BONUS ||
                 earningType == EarningType.VACATION_PAY;
     }
-
 }
